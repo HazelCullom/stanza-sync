@@ -7,15 +7,20 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        azalea: {
-          light: '#d0f0c0',
-          DEFAULT: '#a0e0a0',
-          dark: '#70c070',
+        'azalea-pink': {
+          100: '#fdf2f8', // Soft pink background
+          200: '#fce7f3', // Subtle petal tone
+          300: '#fbc9e8', // Slightly deeper pink
+          400: '#f7a5d0', // Accented pink
         },
-        blossom: {
-          light: '#ffc0cb',
-          DEFAULT: '#ffb6c1',
-          dark: '#ff69b4',
+        'azalea-green': {
+          100: '#bdb47f', // Light leaf green
+          200: '#aabb89', // Soft, natural green
+          300: '#55ff00', // Muted foliage
+        },
+        'azalea-amber': {
+          100: '#f1e6ca', // Warm, pale yellow-green
+          200: '#ffebc9', // Slight glow
         }
       }
     }
@@ -29,3 +34,4 @@ module.exports = {
   },
   plugins: [],
 };
+

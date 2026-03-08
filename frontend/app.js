@@ -5,10 +5,10 @@ function setTheme(mode) {
   console.log('setTheme called with', mode);
   if (mode === 'dark') {
     document.documentElement.classList.add('dark');
-    if (themeToggle) themeToggle.textContent = '☀️';
+    if (themeToggle) themeToggle.textContent = 'Theme: ☀️';
   } else {
     document.documentElement.classList.remove('dark');
-    if (themeToggle) themeToggle.textContent = '🌙';
+    if (themeToggle) themeToggle.textContent = 'Theme: 🌙';
   }
   document.cookie = `theme=${mode};path=/;max-age=31536000`; // 1 year
 }
@@ -74,3 +74,38 @@ document.getElementById('analyze-btn').addEventListener('click', async () => {
     console.error(err);
   }
 });
+
+// settings menu
+const settingsBtn = document.getElementById('settings-btn');
+const settingsMenu = document.getElementById('settings-menu');
+if (settingsBtn && settingsMenu) {
+  settingsBtn.addEventListener('click', () => {
+    settingsMenu.classList.toggle('hidden');
+    if (!settingsMenu.classList.contains('hidden')) {
+      anime({
+        targets: settingsBtn,
+        rotate: '45deg',
+        duration: 500,
+        easing: 'easeInOutQuad'
+      });
+    } else {
+      anime({
+        targets: settingsBtn,
+        rotate: '0deg',
+        duration: 500,
+        easing: 'easeInOutQuad'
+      });
+    }
+  });
+  document.addEventListener('click', (e) => {
+    if (!settingsBtn.contains(e.target) && !settingsMenu.contains(e.target)) {
+      settingsMenu.classList.add('hidden');
+      anime({
+        targets: settingsBtn,
+        rotate: '0deg',
+        duration: 500,
+        easing: 'easeInOutQuad'
+      });
+    }
+  });
+}

@@ -9,16 +9,42 @@
   <!-- anime.js for simple animations -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
 </head>
-<body class="bg-azalea-light dark:bg-gray-900 flex items-center justify-center min-h-screen transition-colors">
-  <div class="max-w-xl w-full p-6 bg-white dark:bg-gray-800 rounded-lg shadow-lg border-2 border-azalea dark:border-azalea-dark">
-    <div class="flex justify-between items-center mb-4">
-      <h1 class="text-2xl font-bold text-azalea-dark dark:text-azalea-light">Stanza Sync</h1>
-      <button id="theme-toggle" class="px-2 py-1 bg-gray-200 dark:bg-gray-600 rounded">🌙/☀️</button>
+<body class="bg-gradient-to-tr from-pink-300 to-pink-100 dark:bg-gradient-to-tr dark:from-emerald-950 dark:to-emerald-900 min-h-screen transition-colors">
+  <header class="sticky top-0 w-full justify-between items-center py-4 px-8 backdrop-blur-lg bg-black/5 dark:bg-black/5 shadow-md flex">
+    <div class="flex items-left text-left">
+      <h1 class="text-2xl font-bold text-black/80 dark:text-white/80">Stanza Sync</h1>
     </div>
-    <textarea id="poem-input" class="w-full h-32 p-2 border rounded border-azalea dark:border-azalea-dark bg-white dark:bg-gray-700 text-gray-800 dark:text-gray-100" placeholder="Paste your poem here..."></textarea>
-    <button id="analyze-btn" class="mt-4 px-4 py-2 bg-azalea text-white rounded hover:bg-azalea-dark">Analyze</button>
-    <div id="result" class="mt-6"></div>
+    <div class="flex items-right">
+      <div class="relative">
+        <button id="settings-btn" class="px-2 py-1 bg-gray-200 dark:bg-gray-700 rounded">⚙️</button>
+        <div id="settings-menu" class="absolute right-0 mt-2 w-40 bg-white dark:bg-gray-700 rounded shadow-lg p-2 hidden">
+          <button id="theme-toggle" class="w-full text-left px-2 py-1 hover:bg-gray-100 dark:hover:bg-gray-600 rounded">🌙/☀️ Toggle theme</button>
+        </div>
+      </div>
+    </div>
+  </header>
+  <div class="flex items-center justify-center min-h-screen px-4">
+    <div class="max-w-xl w-full p-6 backdrop-blur-lg bg-black/5 dark:bg-black/5 opacity-100 rounded-lg shadow-lg border-2 border-azalea dark:border-azalea-dark">
+        <textarea id="poem-input" class="w-full h-32 p-2 border rounded border-azalea dark:border-azalea-dark bg-white dark:bg-gray-700 text-gray-800 dark:text-gray-100" placeholder="Paste your poem here..."></textarea>
+        <button id="analyze-btn" class="mt-4 px-4 py-2 bg-azalea text-black dark:text-white rounded hover:bg-azalea-dark">Analyze</button>
+        <div id="result" class="mt-6"></div>
+    </div>
   </div>
   <script src="app.js"></script>
+  <script>
+    // settings menu toggle
+    const settingsBtn = document.getElementById('settings-btn');
+    const settingsMenu = document.getElementById('settings-menu');
+    if (settingsBtn && settingsMenu) {
+      settingsBtn.addEventListener('click', () => {
+        settingsMenu.classList.toggle('hidden');
+      });
+      document.addEventListener('click', (e) => {
+        if (!settingsBtn.contains(e.target) && !settingsMenu.contains(e.target)) {
+          settingsMenu.classList.add('hidden');
+        }
+      });
+    }
+  </script>
 </body>
 </html>

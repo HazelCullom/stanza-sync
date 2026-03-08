@@ -23,6 +23,10 @@ yarn-error.log*
 dist/
 build/
 
+# generated Tailwind stylesheet
+/frontend/output.css
+/frontend/styles-tw.css
+
 # IDE/editor folders
 .vscode/
 .idea/

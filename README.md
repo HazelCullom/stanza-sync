@@ -46,6 +46,14 @@ cd stanza-sync
 
 > **Note:** You'll need access to the Duotrope API and an AI service for style analysis and letter generation. A local database or cache (e.g. SQLite, Redis, Postgres) should be configured to persist analysis results.
 
+**Tailwind CSS:** Before running the server, generate the styles by executing:
+>
+```bash
+npm run build:css    # or `npm run watch:css` during development
+```
+
+ The resulting `output.css` file is ignored by Git (it's a build artifact).  Do not commit generated styles; the source `frontend/styles.css` and `tailwind.config.js` are the canonical files.
+
 ---
 
 ## 📄 Usage

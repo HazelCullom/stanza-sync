@@ -43,8 +43,15 @@ app.post('/analyze', async (req, res) => {
   res.json({ source: 'ai', ...result });
 });
 
+const path = require('path');
+
 // static frontend
-app.use(express.static('../frontend'));
+app.use(express.static(path.join(__dirname, '../frontend')));
+
+// ensure root route returns index.html (fallback for SPA)
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, '../frontend/index.html'));
+});
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {

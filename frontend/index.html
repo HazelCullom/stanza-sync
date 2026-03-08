@@ -4,16 +4,19 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Stanza Sync</title>
-  <!-- Tailwind CSS via CDN for quick prototyping -->
-  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Tailwind CSS built via CLI -->
+  <link href="output.css" rel="stylesheet">
   <!-- anime.js for simple animations -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
 </head>
-<body class="bg-gray-100 flex items-center justify-center min-h-screen">
-  <div class="max-w-xl w-full p-6 bg-white rounded-lg shadow-lg">
-    <h1 class="text-2xl font-bold mb-4">Stanza Sync</h1>
-    <textarea id="poem-input" class="w-full h-32 p-2 border rounded" placeholder="Paste your poem here..."></textarea>
-    <button id="analyze-btn" class="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">Analyze</button>
+<body class="bg-azalea-light dark:bg-gray-900 flex items-center justify-center min-h-screen transition-colors">
+  <div class="max-w-xl w-full p-6 bg-white dark:bg-gray-800 rounded-lg shadow-lg border-2 border-azalea dark:border-azalea-dark">
+    <div class="flex justify-between items-center mb-4">
+      <h1 class="text-2xl font-bold text-azalea-dark dark:text-azalea-light">Stanza Sync</h1>
+      <button id="theme-toggle" class="px-2 py-1 bg-gray-200 dark:bg-gray-600 rounded">🌙/☀️</button>
+    </div>
+    <textarea id="poem-input" class="w-full h-32 p-2 border rounded border-azalea dark:border-azalea-dark bg-white dark:bg-gray-700 text-gray-800 dark:text-gray-100" placeholder="Paste your poem here..."></textarea>
+    <button id="analyze-btn" class="mt-4 px-4 py-2 bg-azalea text-white rounded hover:bg-azalea-dark">Analyze</button>
     <div id="result" class="mt-6"></div>
   </div>
   <script src="app.js"></script>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stanza Sync</title>
+  <!-- Tailwind CSS via CDN for quick prototyping -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- anime.js for simple animations -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+  <div class="max-w-xl w-full p-6 bg-white rounded-lg shadow-lg">
+    <h1 class="text-2xl font-bold mb-4">Stanza Sync</h1>
+    <textarea id="poem-input" class="w-full h-32 p-2 border rounded" placeholder="Paste your poem here..."></textarea>
+    <button id="analyze-btn" class="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">Analyze</button>
+    <div id="result" class="mt-6"></div>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
